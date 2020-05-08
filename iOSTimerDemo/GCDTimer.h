@@ -18,6 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
                repeats:(BOOL)repeats
                  async:(BOOL)async;
 
++ (NSString *)execTask:(id)target
+              selector:(SEL)selector
+                 start:(NSTimeInterval)start
+              interval:(NSTimeInterval)interval
+               repeats:(BOOL)repeats
+                 async:(BOOL)async;
+
 + (void)cancelTask:(NSString*)name;
 
 @end

@@ -35,9 +35,15 @@
 //    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:[TimerProxy proxyWihtTarger:self] selector:@selector(timerTest) userInfo:nil repeats:YES];
     
     // 设计一个基于系统内核的准时定时器————CGD定时器
-    self.taskName = [GCDTimer execTask:^{
-        NSLog(@"_%@_111", [NSThread currentThread]);
-    } start:2.0 interval:1.0 repeats:YES async:NO];
+//    self.taskName = [GCDTimer execTask:^{
+//        NSLog(@"_%@_111", [NSThread currentThread]);
+//    } start:2.0 interval:1.0 repeats:YES async:NO];
+    
+    self.taskName = [GCDTimer execTask:self selector:@selector(doTest) start:2.0 interval:1.0 repeats:YES async:NO];
+}
+
+- (void)doTest {
+    NSLog(@"%s", __func__);
 }
 
 - (void)timerTest {
